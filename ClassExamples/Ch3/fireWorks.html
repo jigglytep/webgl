@@ -1,0 +1,39 @@
+<html>
+    <title>Fire Works</title>
+    <head>
+        <script id="vertex-shader" type="x-shader/x-vertex">
+            attribute vec4 vPosition;
+            uniform float speed;
+            void main(){
+                gl_PointSize = 2.0;
+                gl_Position.x = vPosition.x;
+                gl_Position.y = vPosition.y - 1.0 + speed;
+                gl_Position.z = 0.0;
+                gl_Position.w = 1.0;
+            }
+        </script>
+        <script id="fragment-shader" type="x-shader/x-fragment">
+            precision mediump float;
+            uniform vec4 color;
+            void main()
+            {
+                gl_FragColor = color;
+            }
+        </script>
+
+        <button id="fire">Fire</button>
+
+        <script type="text/javascript" src="../Common/webgl-utils.js"></script>
+        <script type="text/javascript" src="../Common/initShaders.js"></script>
+        <script type="text/javascript" src="../Common/MV.js"></script>
+        <script type="text/javascript" src="fireWorks.js"></script>
+
+    </head>
+    <body>
+        <canvas id="gl-canvas" width="512" height="512">
+            Opps, your web brower not support html 5!
+        </canvas>
+    </body>
+
+    </body>
+</html>
